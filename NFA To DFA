@@ -1,0 +1,76 @@
+#Input No of States and Transitions
+noOfStates=int(input("Enter no of States"))
+noOfTransitions=int(input("Enter no of Transitions"))
+
+#Input in form of Dictionary
+thisDictionary={}
+y=[]
+for i in range (0,noOfStates):
+    x = input("Enter State Name")
+    innerDictionary={}
+    for j  in range (0,noOfTransitions):
+        y = input("Enter transition")
+        innerDictionary[chr(j+97)]=y
+        print(innerDictionary)
+    thisDictionary[x] = innerDictionary
+
+print(thisDictionary)
+
+#Make New Dictionary
+newDictionary={}
+newInnerDictionary={}
+
+#Populate with first entry
+newDictionary["A"]=thisDictionary.get("A")
+print(newDictionary)
+newInnerDictionary=newDictionary["A"]
+print(newInnerDictionary)
+
+#Compare key values with first dictionary
+list1 =[newInnerDictionary["a"]]
+
+print(list1)
+length = len(list1[0])
+print(newDictionary)
+print()
+
+for g in list1:
+    print("g os = ",g)
+    wordlist=list(g)
+    for x in newDictionary:
+        print("x is = ",x)
+        dictionary ={}
+        if(g==x):
+            print("g==x")
+        else:
+            for y in thisDictionary:
+                if(g==y):
+                    print("g==y")
+                else: 
+                    for t in range (0,noOfTransitions):
+                        print(chr(t+97),"transition")
+                        newValue = ""
+                        length = len(g)
+                        print("length is ",length)
+                        for p in range (0,length):
+                            print("p is ",p)
+                            Dict = thisDictionary[wordlist[p]]
+                            print("Dict is ",Dict)
+                            newValue = newValue + Dict[chr(t+97)]
+                            print("newValue is ",newValue)
+                        dictionary[chr(t+97)] = newValue
+                        print("dictionary is",dictionary)
+    newDictionary[g]=dictionary
+    for q in range (0,noOfTransitions):
+        print(list1)
+        list1.append(dictionary[chr(q+97)])
+    print(newDictionary)
+
+    
+
+
+
+#Compare Key values with next dictionary
+#Add key values
+#Print
+
